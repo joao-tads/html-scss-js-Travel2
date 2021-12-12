@@ -68,6 +68,14 @@ section {
     color: $white;
   }
 }
+
+.heading {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  font-size: 4rem;
+  color: $black;
+}
+
 /* ========== HEADER ========== */
 .header {
   position: fixed;
@@ -78,6 +86,11 @@ section {
   z-index: 1000;
   display: flex;
   align-items: center;
+
+  &.active {
+    background: $white;
+    box-shadow: $box-shadow;
+  }
 
   .logo {
     margin-right: auto;
@@ -203,6 +216,7 @@ section {
     padding: 2rem 9%;
 
     .content {
+      text-align: justify;
       width: 50rem;
 
       span {
@@ -226,30 +240,174 @@ section {
     }
   }
 
-  .box:nth-child(1) {
-    background: url(../img/home-bg-2.jpg);
-
-    .content {
-      margin-left: 35%;
-    }
-  }
-
-  .box:nth-child(2) {
+  .box-one {
     background: url(../img/home-bg-1.jpg);
 
     .content {
-      margin-right: 35%;
+      margin-left: 50%;
     }
   }
 
-  .box:nth-child(3) {
+  .box-two {
+    background: url(../img/home-bg-2.jpg);
+
+    .content {
+      margin-right: 50%;
+    }
+  }
+
+  .box-three {
     background: url(../img/home-bg-3.jpg);
 
     .content {
-      margin-left: 35%;
+      margin-left: 50%;
     }
   }
 }
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 3rem;
+  color: $black;
+}
+
+/* ========== CATEGORY ========== */
+.category {
+  .box-container {
+    @include grid(29rem);
+
+    .box {
+      text-align: center;
+      padding: 1rem;
+
+      img {
+        height: 20rem;
+        width: 20rem;
+        border-radius: 50%;
+        border-bottom: 1rem;
+      }
+
+      h3 {
+        font-size: 2rem;
+        color: $green;
+      }
+
+      p {
+        font-size: 1.5rem;
+        color: $black;
+        padding: 1rem 0;
+        line-height: 2;
+      }
+    }
+  }
+}
+
+/* ========== ABOUT ========== */
+.about {
+  background: $light-bg;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+
+  .image {
+    flex: 1 1 42rem;
+    padding-right: 5rem;
+    padding-bottom: 5rem;
+
+    img {
+      width: 100%;
+      box-shadow: 4rem 4rem 0 rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  .content {
+    flex: 1 1 42rem;
+
+    h3 {
+      font-size: 3rem;
+      color: $green;
+    }
+
+    p {
+      font-size: 1.5rem;
+      color: $black;
+      padding: 1rem 0;
+      line-height: 2;
+    }
+  }
+}
+
+/* ========== SHOP ========== */
+.shop {
+  .slide {
+    border: $border;
+
+    &:hover .image .icons {
+      transform: translateY(0);
+    }
+
+    .image {
+      position: relative;
+      overflow: hidden;
+      height: 30rem;
+      width: 100%;
+
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+
+      .icons {
+        width: 100%;
+        position: absolute;
+        bottom: 2rem;
+        left: 0;
+        text-align: center;
+        z-index: 10;
+        transform: translateY(7rem);
+
+        a {
+          height: 4.5rem;
+          width: 4.5rem;
+          line-height: 4.5rem;
+          font-size: 1.7rem;
+          background: $black;
+          color: $white;
+          margin: 0 0.2rem;
+
+          &:hover {
+            background: $green;
+          }
+        }
+      }
+    }
+
+    .content {
+      padding: 1rem 0;
+      padding-top: 0.5rem;
+      text-align: center;
+
+      h3 {
+        font-size: 2rem;
+        color: $black;
+      }
+
+      .price {
+        padding: 1rem 0;
+        font-size: 2rem;
+        color: $green;
+      }
+
+      .stars i {
+        font-size: 1.7rem;
+        color: $black;
+      }
+    }
+  }
+}
+
 /* ========== RESPONSIVIDADE ========== */
 /* ______ 1200px desktop FULL HD_____ */
 @media (max-width: 1200px) {
@@ -266,13 +424,49 @@ section {
 @media (max-width: 991px) {
   html {
     font-size: 55%;
+    scroll-padding-top: 7rem;
+  }
+
+  .home {
+    .box {
+      padding: 0;
+      justify-content: center;
+
+      .box-one,
+      .box-three {
+        background-position: left !important;
+      }
+
+      .box-two {
+        background-position: right !important;
+      }
+
+      .content {
+        padding: 5rem;
+        margin: 0;
+        align-items: center;
+        text-align: center;
+
+        span {
+          font-size: 3rem;
+        }
+
+        h3 {
+          font-size: 4rem;
+        }
+
+        p {
+          text-align: justify;
+        }
+      }
+    }
   }
 }
 
 /* ______ 768 tablet _____ */
 @media (max-width: 768px) {
   .header {
-    #menu-btn {
+    #menu {
       display: inline-block;
     }
 
@@ -306,11 +500,20 @@ section {
       }
     }
   }
+
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    display: none;
+  }
 }
 
 /* ______ 450px smathphone _____ */
 @media (max-width: 450px) {
   html {
     font-size: 50%;
+  }
+
+  .heading {
+    font-size: 3rem;
   }
 }
