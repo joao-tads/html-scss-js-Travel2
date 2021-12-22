@@ -588,6 +588,170 @@ section {
     }
   }
 }
+
+/* ========== BLOGS ========== */
+.blogs {
+  .slide {
+    text-align: center;
+    padding: 2rem;
+
+    img {
+      height: 25rem;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 0.5rem;
+    }
+
+    .icons {
+      background: $black;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      position: relative;
+      top: -2rem;
+      display: inline-block;
+
+      a {
+        font-size: 1.4rem;
+        color: $white;
+        margin: 0 1rem;
+
+        &:hover {
+          color: $green;
+        }
+
+        i {
+          padding-right: 0.5rem;
+          color: $green;
+        }
+      }
+    }
+    h3 {
+      font-size: 2rem;
+      color: $black;
+    }
+
+    p {
+      font-size: 1.4rem;
+      padding: 1rem 0;
+      line-height: 2;
+      color: $black;
+    }
+  }
+}
+
+/* ========== NEWSLETTER ========== */
+.newsletter {
+  background: $light-bg;
+
+  .content {
+    max-width: 60rem;
+    margin: 1rem auto;
+    text-align: center;
+
+    p {
+      font-size: 1.5rem;
+      line-height: 2;
+      color: $black;
+    }
+
+    form {
+      margin-top: 2rem;
+      background: $white;
+      border-radius: 5rem;
+      border: $border;
+      padding: 0.7rem;
+      display: flex;
+
+      .email {
+        width: 100%;
+        background: none;
+        text-transform: none;
+        font-size: 1.6rem;
+        color: $black;
+        padding: 0 1.3rem;
+      }
+
+      .btn {
+        margin-top: 0;
+        border-radius: 5rem;
+        background: $black;
+        color: $white;
+
+        &:hover {
+          background: none;
+          color: $black;
+        }
+      }
+    }
+  }
+}
+
+/* ========== NEWSLETTER ========== */
+.clients {
+  .slide {
+    text-align: center;
+
+    img {
+      height: 12rem;
+    }
+  }
+}
+
+/* ========== FOOTER ========== */
+footer {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../img/footer-bg.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+  .box-container {
+    @include grid(25rem);
+    margin: 0 10%;
+
+    .box {
+      h3 {
+        font-size: 2rem;
+        padding: 1.5rem 0;
+        color: $white;
+      }
+
+      a {
+        display: block;
+        font-size: 1.4rem;
+        color: $white;
+        padding: 1rem 0;
+      }
+
+      i {
+        color: $green;
+        padding-right: 0.5rem;
+      }
+
+      &:hover {
+        color: $green;
+
+        i {
+          padding-right: 2rem;
+        }
+      }
+    }
+  }
+}
+
+.credts {
+  text-align: center;
+  margin-top: 2.5rem;
+  padding: 1rem;
+  padding-top: 2.5rem;
+  font-size: 2rem;
+  color: $white;
+
+  span {
+    color: $green;
+  }
+}
+
 /* ========== RESPONSIVIDADE ========== */
 /* ______ 1200px desktop FULL HD_____ */
 @media (max-width: 1200px) {
